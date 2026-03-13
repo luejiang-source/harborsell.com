@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbor Sell - Premium Tech Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(background.jpg); background-size: cover; background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 102, 0, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-w-4xl px-4;
+        }
+        .product-card {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid #0066ff;
+            transition: all 0.5s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px rgba(255, 102, 0, 0.3);
+            border-color: #ff6600;
+        }
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        .product-content {
+            padding: 24px;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 102, 0, 0.3), transparent);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6600, #ff8533);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6600, #cc5200);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 102, 0, 0.5);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #0066ff, #0052cc);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.5);
+        }
+        .feature-box {
+            background: rgba(255, 102, 0, 0.05);
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            border-radius: 12px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(0, 102, 255, 0.2);
+            border: 1px solid rgba(0, 102, 255, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #66b3ff;
+        }
+        .stock-badge {
+            display: inline-block;
+            background: rgba(0, 204, 102, 0.2);
+            border: 1px solid rgba(0, 204, 102, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #66ffa6;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-3xl font-bold tracking-tight">
+                <span class="text-blue-500">Harbor</span><span class="text-orange-500">Sell</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#products" class="hover:text-orange-500 transition text-gray-300">Products</a>
+                <a href="#about" class="hover:text-orange-500 transition text-gray-300">About</a>
+                <a href="#contact" class="hover:text-orange-500 transition text-gray-300">Contact</a>
+            </div>
+            <button class="md:hidden text-white">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                Advanced Tech<br><span class="bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">Solutions</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                Professional-grade CPU boards, embedded devices, and cutting-edge software for demanding applications.
+            </p>
+            <a href="#products" class="btn-primary px-8 py-4 rounded-lg font-semibold inline-block text-white">
+                Explore Products →
+            </a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-6 bg-gray-950">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="text-center">
+                <div class="stat-number">1000+</div>
+                <p class="text-gray-400 text-lg mt-2">Products in Stock</p>
+            </div>
+            <div class="text-center">
+                <div class="stat-number">50K+</div>
+                <p class="text-gray-400 text-lg mt-2">Active Customers</p>
+            </div>
+            <div class="text-center">
+                <div class="stat-number">99.8%</div>
+                <p class="text-gray-400 text-lg mt-2">Uptime Guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Products Section -->
+    <section id="products" style="display:none" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4">Featured Products</h2>
+                <p class="text-gray-400 text-xl">Industrial-grade technology for professionals</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <a href="product-1.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">💻</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="badge">CPU Board</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Intel Xeon Platinum</h3>
+                        <p class="text-gray-400 mb-4 text-sm">28-core processor • 205W • LGA4189</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="product-2.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">⚙️</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="badge">Embedded Device</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Raspberry Pi Cluster Kit</h3>
+                        <p class="text-gray-400 mb-4 text-sm">ARM-based • Multi-node setup • Industrial cooling</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="product-3.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">📊</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="badge">Software Suite</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Kubernetes Enterprise Pro</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Container orchestration • 1-year license • 24/7 support</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="product-4.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">🖥️</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="stock-badge">In Stock</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">NVIDIA H100 GPU</h3>
+                        <p class="text-gray-400 mb-4 text-sm">AI Accelerator • 80GB HBM3 • PCIe Gen5</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 5 -->
+                <a href="product-5.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">🔧</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="badge">Development Kit</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">STM32 Microcontroller Suite</h3>
+                        <p class="text-gray-400 mb-4 text-sm">ARM Cortex-M • Multiple variants • Complete SDK</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 6 -->
+                <a href="product-6.html" class="product-card rounded-lg overflow-hidden block">
+                    <div class="product-image">🛡️</div>
+                    <div class="product-content">
+                        <div class="mb-2">
+                            <span class="badge">Security Software</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">CyberGuard Enterprise</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Threat detection • Encryption • Compliance tools</p>
+                        <div class="flex justify-between items-center">
+                            <button class="btn-primary px-4 py-2 rounded text-sm font-semibold text-white">View Details</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Why Harbor Sell -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16 text-center">Why Choose Harbor Sell</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-box p-8">
+                    <div class="text-4xl mb-4 text-orange-500">✓</div>
+                    <h3 class="text-2xl font-bold mb-3">Authentic Products</h3>
+                    <p class="text-gray-400">All products are 100% authentic and sourced directly from manufacturers or authorized distributors. Every item undergoes quality verification before shipping.</p>
+                </div>
+
+                <div class="feature-box p-8">
+                    <div class="text-4xl mb-4 text-orange-500">✓</div>
+                    <h3 class="text-2xl font-bold mb-3">Expert Support</h3>
+                    <p class="text-gray-400">Our technical team consists of engineers and industry professionals who can provide detailed guidance on product selection and implementation.</p>
+                </div>
+
+                <div class="feature-box p-8">
+                    <div class="text-4xl mb-4 text-orange-500">✓</div>
+                    <h3 class="text-2xl font-bold mb-3">Bulk Discounts</h3>
+                    <p class="text-gray-400">We offer competitive pricing for bulk orders and corporate purchases. Contact our sales team for custom quotes on large quantities.</p>
+                </div>
+
+                <div class="feature-box p-8">
+                    <div class="text-4xl mb-4 text-orange-500">✓</div>
+                    <h3 class="text-2xl font-bold mb-3">Fast Global Shipping</h3>
+                    <p class="text-gray-400">With warehouses in strategic locations, we ensure rapid delivery worldwide. Same-day shipping available for orders before 2 PM EST.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-6 bg-gray-950">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-6">Need Custom Solutions?</h2>
+            <p class="text-xl text-gray-400 mb-8">Our technical team can help with bulk orders, custom configurations, and enterprise deployments.</p>
+            <a href="#contact" class="btn-primary px-10 py-4 rounded-lg font-semibold inline-block text-white text-lg">
+                Contact Sales
+            </a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Categories -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16 text-center">Product Categories</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-box p-8 text-center">
+                    <div class="text-5xl mb-4">🎛️</div>
+                    <h3 class="text-xl font-bold mb-2">CPU Boards</h3>
+                    <p class="text-gray-400">Intel, AMD, ARM processors</p>
+                </div>
+
+                <div class="feature-box p-8 text-center">
+                    <div class="text-5xl mb-4">🔌</div>
+                    <h3 class="text-xl font-bold mb-2">Embedded Devices</h3>
+                    <p class="text-gray-400">IoT, Edge computing</p>
+                </div>
+
+                <div class="feature-box p-8 text-center">
+                    <div class="text-5xl mb-4">💿</div>
+                    <h3 class="text-xl font-bold mb-2">Software</h3>
+                    <p class="text-gray-400">OS, Security, Dev tools</p>
+                </div>
+
+                <div class="feature-box p-8 text-center">
+                    <div class="text-5xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-2">Accessories</h3>
+                    <p class="text-gray-400">Cables, Adapters, More</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-gray-950">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold mb-16 text-center">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-gray-400 mb-1">Sales</p>
+                            <p class="text-white text-lg">sales@harborsell.com</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-1">Technical Support</p>
+                            <p class="text-white text-lg">support@harborsell.com</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-1">Phone</p>
+                            <p class="text-white text-lg">+1 (555) 123-4567</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-1">Office</p>
+                            <p class="text-white text-lg">123 Tech Hub, Silicon Valley, CA 94025</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 mb-1">Hours</p>
+                            <p class="text-white text-lg">Mon-Fri: 9AM-6PM EST</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Quick Inquiry</h3>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-white">
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-white">
+                        <input type="text" placeholder="Subject" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-white">
+                        <textarea placeholder="Message" rows="4" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-orange-500 text-white"></textarea>
+                        <button type="submit" class="btn-primary px-8 py-3 rounded-lg font-semibold text-white w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4"><span class="text-blue-500">Harbor</span><span class="text-orange-500">Sell</span></h4>
+                    <p class="text-gray-400">Professional-grade technology solutions.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Products</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition">CPU Boards</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Devices</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Software</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-gray-200">Connect</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition">GitHub</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2026 HarborSell. All rights reserved. | <a href="#" class="hover:text-orange-500 transition">Privacy</a> | <a href="#" class="hover:text-orange-500 transition">Terms</a> | <a href="#" class="hover:text-orange-500 transition">Support</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
